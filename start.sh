@@ -38,7 +38,7 @@ docker run -d -p 7070:8080 --name $SERVER_NAME $DOCKER_ID/$SERVER_NAME:$SERVER_V
 
 # 정상적으로 컨테이너가 동작을 하는지 검사
 echo "도커 컨테이너의 상태를 검사합니다."
-if [ "$(docker inspect -f '{{.State.Running}}' $SERVER_NAME)" = "true" ]; then
+if [ $(docker inspect -f '{{.State.Running}}' $SERVER_NAME) = "true" ]; then
   echo "컨테이너가 성공적으로 실행 중입니다."
 else
   echo "컨테이너 실행에 실패했습니다."
